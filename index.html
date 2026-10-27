@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search current weather conditions by city in a responsive weather dashboard.">
+  <title>SkyCast | Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="SkyCast home"><span class="brand-icon" aria-hidden="true">☼</span> skycast<span class="brand-dot">.</span></a>
+      <span class="live-badge"><span aria-hidden="true"></span> LIVE WEATHER</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">YOUR WORLD, AT A GLANCE</p>
+      <h1 id="page-title">Weather, made <span>simple.</span></h1>
+      <p class="intro">Discover current conditions and plan your day with confidence.</p>
+      <form id="search-form" class="search-form">
+        <label class="visually-hidden" for="city-input">Enter a city name</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="city-input" name="city" type="search" placeholder="Search a city, e.g. Chennai" autocomplete="off" required>
+        <button type="submit" id="search-button">Search <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="api-note">Weather data provided by Open-Meteo. No API key required.</p>
+    </section>
+
+    <section id="status-region" class="status-region" aria-live="polite" role="status"></section>
+
+    <section id="weather-panel" class="weather-panel" aria-labelledby="weather-title" hidden>
+      <div class="weather-main">
+        <div>
+          <p class="weather-label">CURRENT WEATHER</p>
+          <h2 id="weather-title">—</h2>
+          <p id="weather-description" class="weather-description">—</p>
+          <p id="weather-updated" class="weather-updated"></p>
+        </div>
+        <div class="temperature-wrap"><span id="weather-icon" class="weather-icon" aria-hidden="true">☀</span><p class="temperature"><span id="temperature">—</span><span class="degree">°C</span></p></div>
+      </div>
+      <div class="metrics-grid">
+        <article class="metric-card"><span class="metric-icon" aria-hidden="true">◉</span><p>Feels like</p><strong><span id="feels-like">—</span>°C</strong></article>
+        <article class="metric-card"><span class="metric-icon" aria-hidden="true">♧</span><p>Humidity</p><strong><span id="humidity">—</span>%</strong></article>
+        <article class="metric-card"><span class="metric-icon" aria-hidden="true">➤</span><p>Wind speed</p><strong><span id="wind-speed">—</span> <small>km/h</small></strong></article>
+        <article class="metric-card"><span class="metric-icon" aria-hidden="true">⌁</span><p>Wind direction</p><strong><span id="wind-direction">—</span>°</strong></article>
+      </div>
+      <p class="data-disclaimer">Current conditions are based on the nearest available weather model/grid point and may differ from local observations.</p>
+    </section>
+
+    <section class="tips-grid" aria-label="Weather dashboard features">
+      <article class="tip-card"><span aria-hidden="true">⌕</span><h2>Search any city</h2><p>Look up current conditions for cities around the world.</p></article>
+      <article class="tip-card"><span aria-hidden="true">↻</span><h2>Live data</h2><p>Fetch fresh weather information asynchronously when you search.</p></article>
+      <article class="tip-card"><span aria-hidden="true">◇</span><h2>Clear insights</h2><p>View temperature, humidity, wind speed, and wind direction.</p></article>
+    </section>
+    <footer><p>Built with HTML, CSS, and async JavaScript.</p><p>© <span id="year">2026</span> SkyCast</p></footer>
+  </main>
+</body>
+</html>
